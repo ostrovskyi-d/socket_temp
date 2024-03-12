@@ -3,7 +3,7 @@ const http = require("http");
 const app = express();
 const server = http.createServer(app);
 const socket = require("socket.io");
-const io = socket(server, {cors: {origin: '*'}});
+const io = socket(server, {cors: {origin: 'https://dev.dh3uogr7pcy3f.amplifyapp.com'}});
 const cors = require("cors");
 
 const rooms = {};
