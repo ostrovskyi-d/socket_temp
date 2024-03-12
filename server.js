@@ -3,16 +3,25 @@ const http = require("http");
 const app = express();
 const server = http.createServer(app);
 const socket = require("socket.io");
-const io = socket(server, {cors: {origin: 'https://dev.dh3uogr7pcy3f.amplifyapp.com'}});
 const cors = require("cors");
 
-const rooms = {};
-
-const corsOption = {
-  origin: 'https://dev.dh3uogr7pcy3f.amplifyapp.com',
+const corsOptions = {
+  origin: "*",
+  optionsSuccessStatus: 200
 };
 
-app.use(cors(corsOption));
+const io = socket(server, {
+  cors: {
+    origin: "*",
+    methods: ["PUT", "GET", "POST", "DELETE", "OPTIONS"],
+    credentials: false
+  }
+});
+
+app.use(cors(corsOptions));
+
+
+const rooms = {};
 
 io.on("connection", socket => {
   socket.on("join room", roomID => {
