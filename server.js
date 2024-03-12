@@ -9,7 +9,7 @@ const cors = require("cors");
 const rooms = {};
 
 const corsOption = {
-  origin: '*',
+  origin: 'https://dev.dh3uogr7pcy3f.amplifyapp.com',
 };
 
 app.use(cors(corsOption));
